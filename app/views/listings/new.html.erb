@@ -1,0 +1,36 @@
+<%= javascript_include_tag 'listings.js' %>
+<div>
+	<%= form_for @listing do |f| %>
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	<div>
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+	</div>
+	<div>
+		<%= f.label :category_id %>
+		<%= f.select :category_id, Category.all.map { |f| [f.name, f.id]} %>
+	</div>
+	<div>
+		<%= f.label :subcategory_id %>
+		<%= f.select :subcategory_id, Subcategory.all.map { |f| [f.name, f.id]} %>
+	</div>
+	<div>
+		<%= f.label :city %>
+		<%= f.text_field :city %>
+	</div>
+	<div>
+		<%= f.label :state, 'Область' %>
+		<%= f.text_field :state %>
+	</div>
+	<div>
+		<%= f.label :zipcode %>
+		<%= f.text_field :zipcode %>
+	</div>
+	<div>
+		<%= f.submit 'Create' %>
+	</div>
+	<% end %>
+</div>
