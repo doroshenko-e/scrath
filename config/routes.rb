@@ -15,7 +15,5 @@ Rails.application.routes.draw do
 	match '/policy', 		to: 'pages#policy', 	via: :get
 	match '/about', 		to: 'pages#about', 		via: :get
 	match '/contact', 	to: 'pages#contact', 	via: :get
-	match '/subcategories/find_by_category', 	to: 'subcategories#find_by_category', 	via: :post
-
 
 end
