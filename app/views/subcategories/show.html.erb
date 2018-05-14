@@ -1,0 +1,25 @@
+<h1>
+	<%= @subcategory.name.capitalize%>
+</h1>
+<h2>Listings</h2>
+<h3>
+	<% if @listings.present? %>
+	<ul>
+		<%= @listings.each do |listing| %>
+		<li>
+			<p>
+				<%= listing.title %> (<%= listing.city %> , <%= listing.state %>)
+			</p>
+			<p>
+				<%= listing.description %>
+			</p>
+			<p>
+				<%= listing.created_at.strftime('%d %B %Y') %>
+			</p>
+		</li>
+		<% end %>
+		<% else %>
+			<p>No listings found!</p>
+		<% end %>
+	</ul>
+</h3>

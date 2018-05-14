@@ -1,3 +1,4 @@
+
 jQuery ->
   subcategories = undefined
   $('#listing_subcategory_id').parent().hide()

@@ -2,60 +2,21 @@
 <div>
 	<%= link_to 'Show listings', listings_path %>
 </div>
+<%= @categories.each do |category|%>
+	<h2>
+		<%= link_to category.name.capitalize, category_path(category)%>
+	</h2>
+		<%= category.subcategories.each do |subcategory| %>
+	<ul>
+		<li>
+			<h3>
+				<%= link_to subcategory.name, category_subcategory_path(category, subcategory) %>
+			</h3>
+		</li>
+	</ul>
+	<% end %>
+<% end %>
 
-<%= link_to "Community", category_path(@community)%>
-<% @community.subcategories.each do |subcategory| %>
-<ul>
-	<li>
-		<%= link_to subcategory.name, category_subcategories_path(@community, subcategory) %>
-	</li>
-</ul>
-<%end%>
-
-<%= link_to "Housing", category_path(@housing) %>
-<% @housing.subcategories.each do |subcategory| %>
-<ul>
-	<li>
-		<%= link_to subcategory.name, category_subcategory_path(@housing, subcategory) %>
-	</li>
-</ul>
-<%end%>
-
-<%= link_to "Services", category_path(@serices) %>
-<% @serices.subcategories.each do |subcategory| %>
-<ul>
-	<li>
-		<%= link_to subcategory.name, category_subcategory_path(@serices, subcategory) %>
-	</li>
-</ul>
-<%end%>
-
-<%= link_to "Personals", category_path(@personals)%>
-<% @personals.subcategories.each do |subcategory| %>
-<ul>
-	<li>
-		<%= link_to subcategory.name, category_subcategory_path(@personals, subcategory) %>
-	</li>
-</ul>
-<%end%>
-
-<%= link_to "For sale", category_path(@for_sale) %>
-<% @for_sale.subcategories.each do |subcategory| %>
-<ul>
-	<li>
-		<%= link_to subcategory.name, category_subcategory_path(@for_sale, subcategory) %>
-	</li>
-</ul>
-<%end%>
-
-<%= link_to "Jobs", category_path(@jobs) %>
-<% @jobs.subcategories.each do |subcategory| %>
-<ul>
-	<li>
-		<%= link_to subcategory.name, category_subcategory_path(@jobs, subcategory) %>
-	</li>
-</ul>
-<%end%>
 
 <ul>
 	<li>
