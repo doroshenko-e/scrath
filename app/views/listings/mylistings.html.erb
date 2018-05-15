@@ -5,7 +5,7 @@
 			<%= @listings.each do |listing| %>
 			<li>
 				<p>
-					<%= listing.title %> (<%= listing.city %> , <%= listing.state %>)
+					<%= link_to listing.title, listing_path(listing) %> (<%= listing.city %> , <%= listing.state %>)
 				</p>
 				<p>
 					<%= listing.description %>
