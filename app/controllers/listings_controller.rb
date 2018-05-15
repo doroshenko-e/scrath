@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
 
 	def create
 		@listing = Listing.new(listing_params)
+		@listing.user = current_user
 		respond_to do |format|
 			if @listing.save
 				format.html { redirect_to @listing, notice: 'Meme was successfully created.' }
@@ -27,6 +28,10 @@ class ListingsController < ApplicationController
 
 	def search
 		@listings = Listing.search(params)
+	end
+
+	def mylistings
+		@listings = Listing.where(user: current_user)
 	end
 
 	private
